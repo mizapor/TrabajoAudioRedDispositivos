@@ -5,6 +5,7 @@ using UnityEngine;
 public class Attack : MonoBehaviour
 {
     private Animator animator;
+    public AudioSource audioSrc;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +16,9 @@ public class Attack : MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
+        {
             animator.SetTrigger("attack");
+            audioSrc.PlayDelayed(0.8f);
+        }
     }
 }
