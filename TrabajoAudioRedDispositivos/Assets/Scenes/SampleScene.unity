@@ -1111,7 +1111,7 @@ GameObject:
   - component: {fileID: 1893397576}
   - component: {fileID: 1893397575}
   m_Layer: 0
-  m_Name: Plane (4)
+  m_Name: Mirror
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1298,8 +1298,9 @@ GameObject:
   - component: {fileID: 1980151360}
   - component: {fileID: 1980151359}
   - component: {fileID: 1980151358}
+  - component: {fileID: 1980151361}
   m_Layer: 0
-  m_Name: Plane (4)
+  m_Name: Webcam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1312,13 +1313,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1980151356}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: -0.000000029802326, y: 0.70710677, z: -0.70710677, w: -0.000000029802326}
   m_LocalPosition: {x: -0.10207939, y: 4.3825, z: 8.9197}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1527991941}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 90.00001, z: -90.00001}
 --- !u!64 &1980151358
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1380,6 +1381,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1980151356}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1980151361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980151356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 113be35d8a0efd947ab10b3c710fefae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2068145726 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4425428723088313499, guid: fc9b148a2950aaf4cba8422632222c5d,
