@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Record : MonoBehaviour
 {
@@ -8,18 +9,33 @@ public class Record : MonoBehaviour
     public AudioSource audioSrc;
     private int numGrab = 0;
 
+    const string playText = "PRESS 'M' TO START RECORDING";
+    const string stopText = "PRESS 'M' AGAIN TO STOP RECORDING";
+    private Text micInfo;
+    private bool isInsideArea = false;
+
     List<float> tempRecording = new List<float>();
 
     // Start is called before the first frame update
     void Start()
     {
-        foreach(var device in Microphone.devices) 
+        micInfo = GameObject.Find("Canvas/MicrophoneInfoText").GetComponent<Text>();
+
+        foreach (var device in Microphone.devices) 
             Debug.Log(device);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isInsideArea)
+        {
+            if (!isRecording)
+                micInfo.text = playText;
+            else
+                micInfo.text = stopText;
+        }
+
         if (Input.GetKeyDown(KeyCode.M))
         {
             if (!isRecording)
@@ -30,6 +46,9 @@ public class Record : MonoBehaviour
             }
             else
             {
+                if (isRecording)
+                    micInfo.text = "";
+
                 isRecording = false;
                 Microphone.End(null);
                 SavWav.Save("audio" + numGrab, audioSrc.clip);
@@ -74,6 +93,25 @@ public class Record : MonoBehaviour
             audioSrc.clip.GetData(clipData, 0);
             tempRecording.AddRange(clipData);
             Invoke("ResizeRecording", 10f);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            isInsideArea = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            isInsideArea = false;
+
+            if (!isRecording)
+                micInfo.text = "";
         }
     }
 }

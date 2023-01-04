@@ -10,6 +10,7 @@ public class Webcam : MonoBehaviour
         WebCamTexture webcamTexture = new WebCamTexture();
         Renderer renderer = GetComponent<Renderer>();
         renderer.material.mainTexture = webcamTexture;
-        webcamTexture.Play();
+        if (WebCamTexture.devices.Length > 0 && WebCamTexture.devices[0].name != "OBS Virtual Camera")
+            webcamTexture.Play();
     }
 }
