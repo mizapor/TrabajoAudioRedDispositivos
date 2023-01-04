@@ -156,8 +156,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a174fa8c063331f4e8643cfa3b20e63e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spherePrefab: {fileID: 9199501929831786222}
-  sphereInitPos: {fileID: 0}
   farInit: {fileID: 9199501929382823850}
   farEnd: {fileID: 9199501929507184241}
   secondsForOneLength: 3
@@ -173,7 +171,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d52ac827dd11b2b4899dd0775af030d0, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
