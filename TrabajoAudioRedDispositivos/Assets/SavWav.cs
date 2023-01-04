@@ -73,7 +73,7 @@ public static class SavWav
 		return TrimSilence(samples, min, channels, hz, false, false);
 	}
 
-	public static AudioClip TrimSilence(List<float> samples, float min, int channels, int hz, bool _3D, bool stream)
+    public static AudioClip TrimSilence(List<float> samples, float min, int channels, int hz, bool _3D, bool stream)
 	{
 		int i;
 
@@ -168,7 +168,7 @@ public static class SavWav
 		Byte[] subChunk1 = BitConverter.GetBytes(16);
 		fileStream.Write(subChunk1, 0, 4);
 
-		UInt16 two = 2;
+		//UInt16 two = 2;
 		UInt16 one = 1;
 
 		Byte[] audioFormat = BitConverter.GetBytes(one);
