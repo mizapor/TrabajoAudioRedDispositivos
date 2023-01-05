@@ -1,49 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!54 &5603854332681810058
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5555046690369656580}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!135 &5603854332681810062
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5555046690369656580}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.15
-  m_Center: {x: 0.000000030796365, y: -1, z: 0.00000031106177}
---- !u!114 &5603854332681810057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5555046690369656580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f721a73dc44bdbc4e8bb21b9cd9fa04b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0.1
 --- !u!1 &8119607674210843711
 GameObject:
   m_ObjectHideFlags: 0
@@ -1704,6 +1660,8 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   audioSrc: {fileID: 365906649887925750}
+  playerID: 0
+  hasCollided: 0
 --- !u!114 &6633661447522054396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3701,16 +3659,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f721a73dc44bdbc4e8bb21b9cd9fa04b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spherePrefab: {fileID: 9199501929831786222, guid: 9bf54d04ad0df8c4a84e0ed2dadda2b9,
-    type: 3}
-  sphereInitPositions:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!4 &8884516093556139287 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1815996702618674821, guid: 51e6752fb1b8e6042b9835e922af930f,
