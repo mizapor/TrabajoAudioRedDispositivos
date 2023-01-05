@@ -10,6 +10,9 @@
 /TrabajoAudioRedDispositivos/[Ll]ogs/
 /TrabajoAudioRedDispositivos/[Mm]emoryCaptures/
 
+TrabajoAudioRedDispositivos_clone_0/
+TrabajoAudioRedDispositivos_clone_1/
+
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/TrabajoAudioRedDispositivos/[Aa]ssets/**/*.meta
 

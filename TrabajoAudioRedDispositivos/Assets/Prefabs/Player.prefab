@@ -41,16 +41,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f721a73dc44bdbc4e8bb21b9cd9fa04b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spherePrefab: {fileID: 9199501929831786222, guid: 9bf54d04ad0df8c4a84e0ed2dadda2b9,
-    type: 3}
-  sphereInitPositions:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0.1
 --- !u!1 &8119607674210843711
 GameObject:
   m_ObjectHideFlags: 0
@@ -1700,7 +1693,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   target: {fileID: 8119607675160446921}
-  clientAuthority: 1
+  clientAuthority: 0
   syncPosition: 1
   syncRotation: 1
   syncScale: 0
