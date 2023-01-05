@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.45100904, g: 0.4994359, b: 0.5666769, a: 1}
+  m_IndirectSpecularColor: {r: 0.4510091, g: 0.49943638, b: 0.56667733, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -498,6 +498,11 @@ PrefabInstance:
     - target: {fileID: 2700874171910072505, guid: 330efb0e9eed825408809c121441b8a5,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700874171910072506, guid: 330efb0e9eed825408809c121441b8a5,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2700874171910072507, guid: 330efb0e9eed825408809c121441b8a5,
@@ -1201,7 +1206,7 @@ PrefabInstance:
     - target: {fileID: 6598815579406187037, guid: 9f5a24a380916d14db9775daab4fe333,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f5a24a380916d14db9775daab4fe333, type: 3}
@@ -2662,6 +2667,7 @@ GameObject:
   - component: {fileID: 1994502698}
   - component: {fileID: 1994502697}
   - component: {fileID: 1994502701}
+  - component: {fileID: 1994502703}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -2791,6 +2797,34 @@ MonoBehaviour:
   serverOnly: 1
   visible: 0
   hasSpawned: 0
+--- !u!114 &1994502703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994502696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aab4c8111b7c411b9b92cf3dbc5bd4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dontDestroyOnLoad: 1
+  runInBackground: 1
+  autoStartServerBuild: 1
+  autoConnectClientBuild: 0
+  sendRate: 30
+  offlineScene: 
+  onlineScene: 
+  transport: {fileID: 0}
+  networkAddress: localhost
+  maxConnections: 100
+  authenticator: {fileID: 0}
+  playerPrefab: {fileID: 0}
+  autoCreatePlayer: 1
+  playerSpawnMethod: 0
+  spawnPrefabs: []
+  timeInterpolationGui: 0
 --- !u!1 &2034678084
 GameObject:
   m_ObjectHideFlags: 0
@@ -2802,7 +2836,6 @@ GameObject:
   - component: {fileID: 2034678085}
   - component: {fileID: 2034678087}
   - component: {fileID: 2034678086}
-  - component: {fileID: 2034678088}
   m_Layer: 5
   m_Name: HitCounter
   m_TagString: Untagged
