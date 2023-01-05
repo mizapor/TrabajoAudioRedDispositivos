@@ -6,6 +6,9 @@ TagManager:
   tags:
   - sword
   - Sphere
+  - ChatWindow
+  - VRCamera
+  - XROrigin
   layers:
   - Default
   - TransparentFX
