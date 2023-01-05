@@ -13,6 +13,9 @@ public class Attack : NetworkBehaviour
     public uint playerID;
 
     public bool hasCollided = false;
+    bool isVR = false;
+
+    GameObject vrCamera = null;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +39,47 @@ public class Attack : NetworkBehaviour
             audioSrc.PlayDelayed(0.8f);
         }
 
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            foreach (Transform transform in GameObject.FindGameObjectWithTag("XROrigin").transform)
+            {
+                if (transform.CompareTag("VRCamera"))
+                {
+                    vrCamera = transform.gameObject;
+                    break;
+                }
+            }
+            if (isVR)
+            {
+                isVR = false;
+                if (isLocalPlayer)
+                {
+                    GameObject.FindGameObjectWithTag("XROrigin").transform.parent = null;
+                    vrCamera.GetComponent<Camera>().enabled = false;
+                    vrCamera.GetComponent<AudioListener>().enabled = false;
+                    GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().enabled = true;
+                    GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioListener>().enabled = true;
+                    GameObject.FindGameObjectWithTag("MainCamera").GetComponent<vThirdPersonCamera>().target = this.gameObject.transform;
+                }
+            }
+            else
+            {
+                isVR = true;
+                if (isLocalPlayer)
+                {
+                    GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().enabled = false;
+                    GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioListener>().enabled = false;
+                    vrCamera.GetComponent<Camera>().enabled = true;
+                    vrCamera.GetComponent<AudioListener>().enabled = true;
+                    GameObject.FindGameObjectWithTag("XROrigin").transform.position = this.gameObject.transform.position;
+                    GameObject.FindGameObjectWithTag("XROrigin").transform.rotation = this.gameObject.transform.rotation;
+                    GameObject.FindGameObjectWithTag("XROrigin").transform.parent = this.gameObject.transform;
+                    GameObject.FindGameObjectWithTag("XROrigin").transform.position = GameObject.FindGameObjectWithTag("XROrigin").transform.position + new Vector3(0, 1.7f, 0) + Vector3.forward * -0.5f;
+                    
+                }
+            }
+        }
+
         if (hasCollided)
         {
             UpdateLocalScore();
@@ -48,6 +92,6 @@ public class Attack : NetworkBehaviour
         Text hitCounter = GameObject.Find("Canvas/HitCounter").GetComponent<Text>();
         int count = Int32.Parse(hitCounter.text);
         count++;
-        hitCounter.text = count.ToString();
+        hitCounter.text = count.ToString();  
     }
 }
