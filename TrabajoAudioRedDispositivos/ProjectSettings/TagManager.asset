@@ -9,6 +9,7 @@ TagManager:
   - ChatWindow
   - VRCamera
   - XROrigin
+  - cameraSpot
   layers:
   - Default
   - TransparentFX

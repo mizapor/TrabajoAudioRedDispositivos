@@ -16,6 +16,7 @@ public class Attack : NetworkBehaviour
     bool isVR = false;
 
     GameObject vrCamera = null;
+    GameObject cameraSpot = null;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +50,15 @@ public class Attack : NetworkBehaviour
                     break;
                 }
             }
+
+            foreach (Transform transform in GameObject.FindGameObjectWithTag("Player").transform)
+            {
+                if (transform.CompareTag("cameraSpot"))
+                {
+                    cameraSpot = transform.gameObject;
+                    break;
+                }
+            }
             if (isVR)
             {
                 isVR = false;
@@ -74,8 +84,7 @@ public class Attack : NetworkBehaviour
                     GameObject.FindGameObjectWithTag("XROrigin").transform.position = this.gameObject.transform.position;
                     GameObject.FindGameObjectWithTag("XROrigin").transform.rotation = this.gameObject.transform.rotation;
                     GameObject.FindGameObjectWithTag("XROrigin").transform.parent = this.gameObject.transform;
-                    GameObject.FindGameObjectWithTag("XROrigin").transform.position = GameObject.FindGameObjectWithTag("XROrigin").transform.position + new Vector3(0, 1.7f, 0) + Vector3.forward * -0.5f;
-                    
+                    GameObject.FindGameObjectWithTag("XROrigin").transform.position = cameraSpot.transform.position;
                 }
             }
         }
