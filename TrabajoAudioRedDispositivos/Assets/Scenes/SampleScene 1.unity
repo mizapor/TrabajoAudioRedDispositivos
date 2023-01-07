@@ -2692,6 +2692,10 @@ MonoBehaviour:
   spawnPrefabs:
   - {fileID: 9199501929831786222, guid: 9bf54d04ad0df8c4a84e0ed2dadda2b9, type: 3}
   timeInterpolationGui: 0
+  player1Prefab: {fileID: 8119607675160446927, guid: 638d28aa4c3b4c64eb77b9ff1377c125,
+    type: 3}
+  player2Prefab: {fileID: 8119607675160446927, guid: 5de4464621e158d4bb7fdf7a5aad0975,
+    type: 3}
   spherePrefab: {fileID: 9199501929831786222, guid: 9bf54d04ad0df8c4a84e0ed2dadda2b9,
     type: 3}
 --- !u!114 &1994502703
