@@ -10,7 +10,8 @@ public class Attack : NetworkBehaviour
     private Animator animator;
     public AudioSource audioSrc;
 
-    public uint playerID;
+    [SyncVar]
+    public int playerID;
 
     public bool hasCollided = false;
     bool isVR = false;
@@ -21,10 +22,13 @@ public class Attack : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.name = "Player " + playerID;
+        
         if (isLocalPlayer)
         {
             animator = GetComponent<Animator>();
-            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<vThirdPersonCamera>().target = this.gameObject.transform;
+            var mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+            mainCamera.GetComponent<vThirdPersonCamera>().target = this.gameObject.transform;
         }
     }
 
@@ -81,10 +85,12 @@ public class Attack : NetworkBehaviour
                     GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioListener>().enabled = false;
                     vrCamera.GetComponent<Camera>().enabled = true;
                     vrCamera.GetComponent<AudioListener>().enabled = true;
-                    GameObject.FindGameObjectWithTag("XROrigin").transform.position = this.gameObject.transform.position;
-                    GameObject.FindGameObjectWithTag("XROrigin").transform.rotation = this.gameObject.transform.rotation;
-                    GameObject.FindGameObjectWithTag("XROrigin").transform.parent = this.gameObject.transform;
-                    GameObject.FindGameObjectWithTag("XROrigin").transform.position = cameraSpot.transform.position;
+                    //GameObject.FindGameObjectWithTag("XROrigin").transform.position = this.gameObject.transform.position;
+                    //GameObject.FindGameObjectWithTag("XROrigin").transform.rotation = this.gameObject.transform.rotation;
+                    GameObject.FindGameObjectWithTag("XROrigin").transform.SetParent(this.gameObject.transform);
+                    GameObject.FindGameObjectWithTag("XROrigin").transform.localPosition = cameraSpot.transform.localPosition;
+                    GameObject.FindGameObjectWithTag("XROrigin").transform.localRotation = cameraSpot.transform.localRotation;
+                    //GameObject.FindGameObjectWithTag("VRCamera").GetComponent<vThirdPersonCamera>().target = this.gameObject.transform;
                 }
             }
         }

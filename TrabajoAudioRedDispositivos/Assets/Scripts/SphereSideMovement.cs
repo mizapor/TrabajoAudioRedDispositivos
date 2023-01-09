@@ -28,7 +28,7 @@ public class SphereSideMovement : NetworkBehaviour
         if (other.tag == "sword")
         {
             Debug.Log("Collided with :" + other.tag);
-            GameObject.Find("NetworkManager").GetComponent<SphereManager>().SphereHitCallbackCommand(this.gameObject);
+            GameObject.Find("SphereManager").GetComponent<SphereManager>().SphereHitCallbackCommand(this.gameObject);
         }
     }
 }

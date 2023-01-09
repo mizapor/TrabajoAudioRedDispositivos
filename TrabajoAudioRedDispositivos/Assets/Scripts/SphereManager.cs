@@ -23,7 +23,7 @@ public class SphereManager : NetworkBehaviour
             return;
 
         NetworkServer.UnSpawn(sphereGO);
-        NetworkServer.Destroy(sphereGO);
+        //NetworkServer.Destroy(sphereGO);
         Destroy(sphereGO);
         var sphere = Instantiate(spherePrefab, sphereInitPositions[UnityEngine.Random.Range(0, sphereInitPositions.Count)].position, Quaternion.identity);
         NetworkServer.Spawn(sphere);

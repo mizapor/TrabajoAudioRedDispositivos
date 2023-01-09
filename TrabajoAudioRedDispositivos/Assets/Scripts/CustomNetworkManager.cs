@@ -4,10 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CustomNetworkManager : NetworkManager
-{
-    public GameObject player1Prefab;
-    public GameObject player2Prefab;
-
+{ 
     public GameObject spherePrefab;
     private List<Transform> sphereInitPositions = new List<Transform>();
 
@@ -36,14 +33,15 @@ public class CustomNetworkManager : NetworkManager
     public override void OnServerAddPlayer(NetworkConnectionToClient conn)
     {
         //base.OnServerAddPlayer(conn);
-        GameObject player = null;
+        GameObject player = Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
+        //player.name += " " + numPlayers;
 
-        if (numPlayers == 0)
-            player = Instantiate(player1Prefab, Vector3.zero, Quaternion.identity);
-        else if (numPlayers == 1)
-            player = Instantiate(player2Prefab, Vector3.zero, Quaternion.identity);
+        //if (numPlayers == 0)
+        //    player = Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
+        //else if (numPlayers == 1)
+        //    player = Instantiate(player2Prefab, Vector3.zero, Quaternion.identity);
 
-        player.GetComponent<Attack>().playerID = player.GetComponent<Attack>().netId;
+        player.GetComponent<Attack>().playerID = numPlayers;
 
         NetworkServer.AddPlayerForConnection(conn, player);
     }
